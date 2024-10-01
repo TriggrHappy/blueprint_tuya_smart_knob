@@ -107,7 +107,7 @@ action:
         sequence:
           - service: mqtt.publish
             data:
-              topic: {{ mqtt_topic }}/set
+              topic: "{{ mqtt_topic }}/set"
               payload: '{"operation_mode": "command"}'
   
       - conditions:
