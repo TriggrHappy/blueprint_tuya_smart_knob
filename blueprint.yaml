@@ -11,6 +11,7 @@ blueprint:
 
     
     **Important Note:** The device needs to be in **COMMAND mode** – the other one being EVENT mode – for the automation to work. However the blueprint will automatically check for the correct mode and should keep the device in COMMAND.
+    
     Do a triple button press to change mode manually. You can also see the current mode in the corresponding HA device page or in Zigbee2MQTT.
 
 
