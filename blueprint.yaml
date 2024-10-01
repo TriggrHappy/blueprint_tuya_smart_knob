@@ -51,8 +51,8 @@ blueprint:
           max: 100
     light_transition:
       name: Light Transition
-      description: "Configure light transition. Set to 0 to disable transition."
-      default: 0.4
+      description: "Configure light transition. Set to 0 to disable transition. (Default 0.2)"
+      default: 0.2
       selector:      
         number:
           min: 0
