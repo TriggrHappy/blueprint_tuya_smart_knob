@@ -1,7 +1,7 @@
 blueprint:
   name: "Blueprint for Command Mode of Tuya ERS-10TZBVK-AA Smart Knob (light entity)"
   description: "Blueprint to configure the command mode Tuya ERS-10TZBVK-AA Smart Knob. It is based directly on the Zigbee2MQTT-Topic to ensure maximum smoothness. Also see https://www.zigbee2mqtt.io/devices/ERS-10TZBVK-AA.html"
-  source_url: https://github.com/TriggrHappy/blueprint_tuya_smart_knob/blob/3b057fabba62def37affea9268f06e9bbc4e03fc/blueprint.yaml
+  source_url: https://github.com/TriggrHappy/blueprint_tuya_smart_knob/blob/11d55ab1dde31b4adc0ca5cca196323c3ab9682c/blueprint.yaml
   domain: automation
   input:
     mqtt_topic:
