@@ -10,7 +10,8 @@ blueprint:
     Also see [the device page](https://www.zigbee2mqtt.io/devices/ERS-10TZBVK-AA.html) on the Z2M homepage for more information.
 
     
-    **Important Note:** The device needs to be in **command mode** for the automation to work. Do a triple button press to change mode. You can see the current mode in the corresponding HA device page or in Zigbee2MQTT.
+    **Important Note:** The device needs to be in **COMMAND mode** – the other one being EVENT mode – for the automation to work. However the blueprint will automatically check for the correct mode and should keep the device in COMMAND.
+    Do a triple button press to change mode manually. You can also see the current mode in the corresponding HA device page or in Zigbee2MQTT.
 
 
     <details>
@@ -18,14 +19,15 @@ blueprint:
      - Press button: Toggle light
      - Turn left/right: Change brightness / dim light
      - Press, hold **and then** turn left/right: Change color temperature
-
+    </details>
 
     <details>
     <summary><b>Features</b></summary>
-     - The automation checks on correct mode of the smart knob and will keep it in **command** mode.
+     - The automation checks on correct mode of the smart knob and will keep it in **COMMAND* mode.
      - The maximum and especially minimum brightness is adjustable and therefore can prevent switching off the light by dimming too low – just set minimum brightness >0.
      - Minimum and maximum color temperature can be set. See [here](https://en.wikipedia.org/wiki/Color_temperature) to match Kelvin values with your desired effect.
      - Fine-tune the resolution of the color temperature adjustments through step multiplier (1-10).
+    </details>
   source_url: https://raw.githubusercontent.com/TriggrHappy/blueprint_tuya_smart_knob/refs/heads/main/blueprint.yaml
   domain: automation
   input:
