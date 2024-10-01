@@ -1,5 +1,5 @@
 blueprint:
-  name: Blueprint for Command Mode of Tuya ERS-10TZBVK-AA Smart Knob (light entity)
+  name: "Blueprint for Command Mode of Tuya ERS-10TZBVK-AA Smart Knob (light entity)"
   description: "Blueprint to configure the command mode Tuya ERS-10TZBVK-AA Smart Knob. It is based directly on the Zigbee2MQTT-Topic to ensure maximum smoothness. Also see https://www.zigbee2mqtt.io/devices/ERS-10TZBVK-AA.html"
   domain: automation
   input:
@@ -40,14 +40,16 @@ blueprint:
           min: 1000
           max: 6500
     min_brightness:
-      name: Minimum Brightness (%) - Set 0 to be able to turn off the light with the dimmer. (default 1)
+      name: Minimum Brightness (%) - 
+      description: "Set 0 to be able to turn off the light with the dimmer. (default 1)"
       default: 1
       selector:
         number:
           min: 0
           max: 100
     light_transition:
-      name: Configure light transition time.
+      name: Light Transition
+      description: "Configure light transition time."
       default: 0.4
       selector:      
         number:
