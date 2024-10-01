@@ -1,7 +1,7 @@
 blueprint:
   name: "Control light entity with Tuya ERS-10TZBVK-AA Smart Knob (command mode)"
   description: >
-    Blueprint to easily configure the Tuya ERS-10TZBVK-AA Smart Knob to control a light entity when integrated into Home Assistant using Zigbee2MQTT.
+    # Blueprint to easily configure the Tuya ERS-10TZBVK-AA Smart Knob to control a light entity when integrated into Home Assistant using Zigbee2MQTT.
 
     
     It is based directly on the MQTT-Topic as this turned out to be the most responsive way to automate this dimmer device.
