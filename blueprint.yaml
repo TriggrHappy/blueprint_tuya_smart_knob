@@ -6,15 +6,17 @@ blueprint:
   input:
     mqtt_topic:
       name: MQTT Topic
-      description: "The parent MQTT topic of the smart knob (e.g. 'zigbee2mqtt/Tuya Smart Knob'"
+      description: "The parent MQTT topic of the smart knob (e.g. 'zigbee2mqtt/Tuya Smart Knob)'"
       selector:
         text:
     light_entity:
       name: Light Entity
       description: "The light entity to be controlled."
-      selector:
+      target:
         entity:
-          domain: light
+          - domain: light
+        device:
+          - domain: light
     step_multiplier:
       name: Step Multiplier
       description: "Multiplier for color temperature change. I.e. in which resolution do you want to fine tune color temperature? (1 = very fine; 10 = faster change)"
