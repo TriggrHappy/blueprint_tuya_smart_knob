@@ -1,12 +1,32 @@
 blueprint:
   name: "Control light entity with Tuya ERS-10TZBVK-AA Smart Knob (command mode)"
-  description: "Blueprint to configure the command mode Tuya ERS-10TZBVK-AA Smart Knob. It is based directly on the Zigbee2MQTT-Topic to ensure maximum smoothness. Also see https://www.zigbee2mqtt.io/devices/ERS-10TZBVK-AA.html. Important Note: The device needs to be in command-mode for the automation to work."
+  description: >
+    Blueprint to easily configure the Tuya ERS-10TZBVK-AA Smart Knob to control a light entity when integrated into Home Assistant using Zigbee2MQTT.
+    
+    It is based directly on the MQTT-Topic as this turned out to be the most responsive way to automate this dimmer device.
+    
+    Also see [the device page](https://www.zigbee2mqtt.io/devices/ERS-10TZBVK-AA.html) on the Z2M homepage for more information.
+    
+    ** Important Note:** The device needs to be in **command mode** for the automation to work. Do a triple button press to change mode. You can see the current mode in the corresponding HA device page or in Zigbee2MQTT.
+
+    <details>
+    <summary><b>Actions</b></summary>
+     - Press button: Toggle light
+     - Turn left/right: Change brightness / dim light
+     - Press, hold **and then** turn left/right: Change color temperature
+
+    <details>
+    <summary><b>Features</b></summary>
+     - The automation checks on correct mode of the smart knob and will keep it in **command** mode.
+     - The maximum and especially minimum brightness is adjustable and therefore can prevent switching off the light by dimming too low – just set minimum brightness >0.
+     - Minimum and maximum color temperature can be set. See [here](https://en.wikipedia.org/wiki/Color_temperature) to match Kelvin values with your desired effect.
+     - Fine-tune the resolution of the color temperature adjustments through step multiplier (1-10).
   source_url: https://raw.githubusercontent.com/TriggrHappy/blueprint_tuya_smart_knob/refs/heads/main/blueprint.yaml
   domain: automation
   input:
     mqtt_topic:
       name: MQTT Topic
-      description: "The parent MQTT topic of the smart knob (e.g. 'zigbee2mqtt/Tuya Smart Knob)'"
+      description: "The parent MQTT topic of the smart knob (e.g. 'zigbee2mqtt/Tuya Smart Knob)'. Typically the last part will be the given name of your device."
       selector:
         text:
     light_entity:
@@ -78,8 +98,18 @@ action:
       kelvin_max: !input kelvin_max
       min_brightness: !input min_brightness
       light_transition: !input light_transition
+      mqtt_topic: !input mqtt_topic
 
   - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ command == 'single' or command == 'double' or command == 'rotate_left' or command == 'rotate_right' or command == 'hold' }}"
+        sequence:
+          - service: mqtt.publish
+            data:
+              topic: {{ mqtt_topic }}/set
+              payload: '{"operation_mode": "command"}'
+  
       - conditions:
           - condition: template
             value_template: "{{ command == 'toggle' }}"
