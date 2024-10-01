@@ -11,7 +11,7 @@ blueprint:
         text:
     light_entity:
       name: Light Entity
-      description: "The light entity to be controlled."
+      description: "The light to be controlled."
       selector:
         target:
           entity:
