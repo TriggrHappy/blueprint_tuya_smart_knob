@@ -2,18 +2,23 @@ blueprint:
   name: "Control light entity with Tuya ERS-10TZBVK-AA Smart Knob (command mode)"
   description: >
     Blueprint to easily configure the Tuya ERS-10TZBVK-AA Smart Knob to control a light entity when integrated into Home Assistant using Zigbee2MQTT.
+
     
     It is based directly on the MQTT-Topic as this turned out to be the most responsive way to automate this dimmer device.
+
     
     Also see [the device page](https://www.zigbee2mqtt.io/devices/ERS-10TZBVK-AA.html) on the Z2M homepage for more information.
+
     
     ** Important Note:** The device needs to be in **command mode** for the automation to work. Do a triple button press to change mode. You can see the current mode in the corresponding HA device page or in Zigbee2MQTT.
+
 
     <details>
     <summary><b>Actions</b></summary>
      - Press button: Toggle light
      - Turn left/right: Change brightness / dim light
      - Press, hold **and then** turn left/right: Change color temperature
+
 
     <details>
     <summary><b>Features</b></summary>
