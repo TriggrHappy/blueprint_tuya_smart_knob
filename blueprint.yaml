@@ -17,6 +17,7 @@ blueprint:
 
     <details>
     <summary><b>Actions</b></summary>
+    
      - Press button: Toggle light
      
      - Turn left/right: Change brightness / dim light
@@ -27,6 +28,7 @@ blueprint:
 
     <details>
     <summary><b>Features</b></summary>
+    
      - The automation checks on correct mode of the smart knob and will keep it in **COMMAND* mode.
      
      - The maximum and especially minimum brightness is adjustable and therefore can prevent switching off the light by dimming too low – just set minimum brightness >0.
