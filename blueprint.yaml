@@ -12,11 +12,12 @@ blueprint:
     light_entity:
       name: Light Entity
       description: "The light entity to be controlled."
-      target:
-        entity:
-          - domain: light
-        device:
-          - domain: light
+      selector:
+        target:
+          entity:
+            - domain: light
+          device:
+            - domain: light
     step_multiplier:
       name: Step Multiplier
       description: "Multiplier for color temperature change. I.e. in which resolution do you want to fine tune color temperature? (1 = very fine; 10 = faster change)"
