@@ -86,6 +86,14 @@ blueprint:
         number:
           min: 0
           max: 100
+    max_brightness:
+      name: Maximum Brightness (%) 
+      description: "The maximum brightness you want the light to dim. (Default 100)"
+      default: 100
+      selector:
+        number:
+          min: 0
+          max: 100
     light_transition:
       name: Light Transition
       description: "Configure light transition. Set to 0 to disable transition. (Default 0.2)"
@@ -114,6 +122,7 @@ action:
       kelvin_min: !input kelvin_min
       kelvin_max: !input kelvin_max
       min_brightness: !input min_brightness
+      max_brightness: !input max_brightness
       light_transition: !input light_transition
       mqtt_topic: !input mqtt_topic
       light_entity: !input light_entity
@@ -140,7 +149,8 @@ action:
             value_template: "{{ command == 'brightness_step_down' }}"
         sequence:
           - service: light.turn_on
-            target: !input light_entity
+            target:
+              entity_id: "{{ light_entity }}"
             data:
               brightness: >-
                 {% set current_brightness =
@@ -154,7 +164,8 @@ action:
             value_template: "{{ command == 'brightness_step_up' }}"
         sequence:
           - service: light.turn_on
-            target: !input light_entity
+            target:
+              entity_id: "{{ light_entity }}"
             data:
               brightness: >-
                 {% set current_brightness =
@@ -168,7 +179,8 @@ action:
             value_template: "{{ command == 'color_temperature_step_up' }}"
         sequence:
           - service: light.turn_on
-            target: !input light_entity
+            target:
+              entity_id: "{{ light_entity }}"
             data:
               kelvin: >-
                 {% set current_kelvin = state_attr(light_entity, 'color_temp_kelvin') %}
@@ -184,7 +196,8 @@ action:
             value_template: "{{ command == 'color_temperature_step_down' }}"
         sequence:
           - service: light.turn_on
-            target: !input light_entity
+            target:
+              entity_id: "{{ light_entity }}"
             data:
               kelvin: >-
                 {% set current_kelvin = state_attr(light_entity, 'color_temp_kelvin') %}
