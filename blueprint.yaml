@@ -52,8 +52,7 @@ blueprint:
       selector:
         entity:
           filter:
-            - integration: mqtt
-              domain: light
+            - domain: light
     step_multiplier:
       name: Step Multiplier
       description: "Multiplier for color temperature change. I.e. in which resolution do you want to fine tune color temperature? (1 = very slow change; 10 = fast change)"
