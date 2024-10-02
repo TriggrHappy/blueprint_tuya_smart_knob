@@ -51,7 +51,7 @@ blueprint:
       description: "The light to be controlled."
       selector:
         entity:
-          multiple: true
+        # multiple: true
           filter:
             - integration: mqtt
               domain: light
