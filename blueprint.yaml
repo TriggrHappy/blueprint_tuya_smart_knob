@@ -149,8 +149,7 @@ action:
             value_template: "{{ command == 'brightness_step_down' }}"
         sequence:
           - service: light.turn_on
-            target:
-              entity_id: "{{ light_entity }}"
+            target: !input light_entity
             data:
               brightness: >-
                 {% set current_brightness =
@@ -164,8 +163,7 @@ action:
             value_template: "{{ command == 'brightness_step_up' }}"
         sequence:
           - service: light.turn_on
-            target:
-              entity_id: "{{ light_entity }}"
+            target: !input light_entity
             data:
               brightness: >-
                 {% set current_brightness =
@@ -179,8 +177,7 @@ action:
             value_template: "{{ command == 'color_temperature_step_up' }}"
         sequence:
           - service: light.turn_on
-            target:
-              entity_id: "{{ light_entity }}"
+            target: !input light_entity
             data:
               kelvin: >-
                 {% set current_kelvin = state_attr(light_entity, 'color_temp_kelvin') %}
@@ -196,8 +193,7 @@ action:
             value_template: "{{ command == 'color_temperature_step_down' }}"
         sequence:
           - service: light.turn_on
-            target:
-              entity_id: "{{ light_entity }}"
+            target: !input light_entity
             data:
               kelvin: >-
                 {% set current_kelvin = state_attr(light_entity, 'color_temp_kelvin') %}
