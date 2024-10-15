@@ -158,7 +158,7 @@ action:
                 state_attr(light_entity, 'brightness') | int %} 
                 {% set new_brightness = current_brightness - (step_percent * 255 / 100) %}
                 {{ [new_brightness, min_brightness] | max }}
-              transition: {{ light_transition | float }}
+              transition: !input light_transition
 
       - conditions:
           - condition: template
@@ -173,7 +173,7 @@ action:
                 state_attr(light_entity, 'brightness') | int %} 
                 {% set new_brightness = current_brightness + (step_percent * 255 / 100) %}
                 {{ [new_brightness, max_brightness] | max }}
-              transition: light_transition
+              transition: !input light_transition
 
       - conditions:
           - condition: template
@@ -190,7 +190,7 @@ action:
                 {% else %}
                   2800
                 {% endif %}
-              transition: light_transition
+              transition: !input light_transition
 
       - conditions:
           - condition: template
@@ -207,6 +207,6 @@ action:
                 {% else %}
                   2800
                 {% endif %}
-              transition: light_transition
+              transition: !input light_transition
 
 mode: single
